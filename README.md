@@ -75,7 +75,6 @@ the-hidden-barbershop/
 │   ├── khach-hang.jpg     # Customer photos
 │   ├── meme1.jpg-meme6.jpg # Gallery images
 │   ├── beach.png          # Additional imagery
-│   └── suoi-gio.jpg       # Service photos
 │
 ├── 📋 README.md           # Project documentation
 └── 🚫 .gitignore          # Git ignore rules
