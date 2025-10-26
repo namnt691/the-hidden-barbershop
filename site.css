@@ -1,0 +1,171 @@
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.scale-hover {
+    transition: all 0.3s ease;
+}
+
+.scale-hover:hover {
+    transform: scale(1.05);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #b8941f 0%, #e6c200 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Language Switch Styles */
+.language-btn {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.language-btn.active {
+    background: rgba(212, 175, 55, 0.3);
+    color: #d4af37;
+}
+
+.language-btn:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: #d4af37;
+}
+
+/* Language switch when navbar is white */
+.bg-gray-100 .language-btn {
+    color: rgba(26, 26, 26, 0.8);
+}
+
+.bg-gray-100 .language-btn.active {
+    background: #d4af37;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bg-gray-100 .language-btn:hover {
+    background: rgba(212, 175, 55, 0.8);
+    color: white;
+}
+
+/* Mobile Language Switch */
+.language-btn-mobile {
+    color: rgba(107, 114, 128, 0.8);
+}
+
+.language-btn-mobile.active {
+    background: #d4af37;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-btn-mobile:hover {
+    background: rgba(212, 175, 55, 0.8);
+    color: white;
+}
+/* Tour card hover effects */
+.tour-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tour-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.tour-card:hover .tour-image {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.tour-card:hover .tour-badge {
+    transform: scale(1.1);
+}
+
+.service-card:hover .service-price {
+    color: #d4af37;
+}
+
+.service-card:hover .book-btn {
+    background: linear-gradient(135deg, #d4af37, #ffd700);
+    transform: scale(1.05);
+}
+
+/* Glow effect on hover */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1rem;
+    z-index: -1;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Premium service special hover */
+.service-premium:hover {
+    transform: translateY(-15px) scale(1.05);
+}
+
+.service-premium:hover::before {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.2));
+}

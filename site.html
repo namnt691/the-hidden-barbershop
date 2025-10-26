@@ -34,178 +34,7 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
-        }
-
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .scale-hover {
-            transition: all 0.3s ease;
-        }
-
-        .scale-hover:hover {
-            transform: scale(1.05);
-        }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in-up.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #b8941f 0%, #e6c200 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .section-padding {
-            padding: 100px 0;
-        }
-        
-        /* Language Switch Styles */
-        .language-btn {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .language-btn.active {
-            background: rgba(212, 175, 55, 0.3);
-            color: #d4af37;
-        }
-        
-        .language-btn:hover {
-            background: rgba(212, 175, 55, 0.2);
-            color: #d4af37;
-        }
-        
-        /* Language switch when navbar is white */
-        .bg-gray-100 .language-btn {
-            color: rgba(26, 26, 26, 0.8);
-        }
-        
-        .bg-gray-100 .language-btn.active {
-            background: #d4af37;
-            color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .bg-gray-100 .language-btn:hover {
-            background: rgba(212, 175, 55, 0.8);
-            color: white;
-        }
-        
-        /* Mobile Language Switch */
-        .language-btn-mobile {
-            color: rgba(107, 114, 128, 0.8);
-        }
-        
-        .language-btn-mobile.active {
-            background: #d4af37;
-            color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .language-btn-mobile:hover {
-            background: rgba(212, 175, 55, 0.8);
-            color: white;
-        }
-        /* Tour card hover effects */
-        .tour-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .tour-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            z-index: 10;
-        }
-        
-        .tour-card:hover .tour-image {
-            filter: brightness(1.1) contrast(1.1);
-        }
-        
-        .tour-card:hover .tour-badge {
-            transform: scale(1.1);
-        }
-        
-        .service-card:hover .service-price {
-            color: #d4af37;
-        }
-        
-        .service-card:hover .book-btn {
-            background: linear-gradient(135deg, #d4af37, #ffd700);
-            transform: scale(1.05);
-        }
-        
-        /* Glow effect on hover */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 1rem;
-            z-index: -1;
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        /* Premium service special hover */
-        .service-premium:hover {
-            transform: translateY(-15px) scale(1.05);
-        }
-        
-        .service-premium:hover::before {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.2));
-        }
-    </style>
+    <link rel="stylesheet" href="./site.css">
 </head>
 <body class="bg-gray-900">
 
@@ -311,14 +140,16 @@
                     <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
                         <span data-vi="Tại Sao Chọn" data-en="Why Choose">Tại Sao Chọn</span> <span class="text-yellow-400" data-vi="The Hidden Barbershop?" data-en="The Hidden Barbershop?">The Hidden Barbershop?</span>
                     </h2>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-vi="The Hidden Barbershop không chỉ là nơi cắt tóc, mà còn là nơi bạn trải nghiệm nghệ thuật và sự chăm sóc hoàn hảo" data-en="The Hidden Barbershop is not just a place to cut hair, but also where you experience art and perfect care">
-                        The Hidden Barbershop không chỉ là nơi cắt tóc, mà còn là nơi bạn trải nghiệm nghệ thuật và sự chăm sóc hoàn hảo
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto" 
+                        data-vi="The Hidden Barbershop không chỉ là nơi cắt tóc, mà còn là nơi bạn trải nghiệm nghệ thuật và sự chăm sóc hoàn hảo. Dịch vụ chăm sóc 1:1 sẽ đem lại trải nghiệm và chất lượng dịch vụ tốt hơn, thoải mái hơn, private hơn và không bị ồn ào xô bồ." 
+                        data-en="The Hidden Barbershop is not just a place to cut hair, but also where you experience art and perfect care. The 1:1 care service provides a better experience and quality service, more comfortable, more private, and free from noisy distractions.">
+                        The Hidden Barbershop không chỉ là nơi cắt tóc, mà còn là nơi bạn trải nghiệm nghệ thuật và sự chăm sóc hoàn hảo. Dịch vụ chăm sóc 1:1 sẽ đem lại trải nghiệm và chất lượng dịch vụ tốt hơn, thoải mái hơn, private hơn và không bị ồn ào xô bồ.
                     </p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="fade-in-up">
-                        <img src="./image/store.jpg" 
+                        <img src="./image/main-store.jpeg" 
                              alt="The Hidden Barbershop" 
                              class="rounded-2xl shadow-2xl w-full">
                     </div>
@@ -350,7 +181,11 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-white mb-2" data-vi="Barber kinh nghiệm" data-en="Experienced Barbers">Barber kinh nghiệm</h3>
-                                <p class="text-gray-300" data-vi="Đội ngũ thợ cắt tóc với hơn 10 năm kinh nghiệm, được đào tạo bài bản" data-en="Team of barbers with over 10 years of experience, professionally trained">Đội ngũ thợ cắt tóc với hơn 10 năm kinh nghiệm, được đào tạo bài bản</p>
+                                <p class="text-gray-300" 
+                                    data-vi="Barber kinh nghiệm. thợ cắt tóc với hơn 10 năm kinh nghiệm, được đào tạo bài bản ở các môi trường chuyên nghiệp nhất việt nam và quốc tế." 
+                                    data-en="Barber with over 10 years of experience, professionally trained in the most professional environments in Vietnam and internationally.">
+                                    Barber kinh nghiệm. thợ cắt tóc với hơn 10 năm kinh nghiệm, được đào tạo bài bản ở các môi trường chuyên nghiệp nhất việt nam và quốc tế.
+                                </p>
                             </div>
                         </div>
                         
@@ -385,7 +220,7 @@
                 <!-- Basic Haircut -->
                 <div class="service-card bg-gray-800 rounded-2xl shadow-xl overflow-hidden fade-in-up relative cursor-pointer" onclick="openServiceModal(1)">
                     <div class="relative">
-                        <img src="./image/store.jpg" 
+                        <img src="./image/main-store.jpeg" 
                              alt="Gói Gentleman Classic" 
                              class="service-image w-full h-48 object-cover transition-all duration-300">
                         <div class="service-badge absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold transition-transform duration-300" data-vi="Phổ biến" data-en="Popular">
@@ -404,7 +239,7 @@
                             </div>
                             <div class="flex items-center text-gray-300">
                                 <i class="fas fa-list text-yellow-400 mr-2"></i>
-                                <span data-vi="5 dịch vụ" data-en="5 services">5 dịch vụ</span>
+                                <span data-vi="5 dịch vụ" data-en="4 services">4 dịch vụ</span>
                             </div>
                             <div class="flex items-center text-gray-300">
                                 <i class="fas fa-star text-yellow-400 mr-2"></i>
@@ -414,7 +249,7 @@
                         
                         <div class="flex items-center justify-between mb-4">
                             <div>
-                                <span class="service-price text-3xl font-bold text-yellow-400 transition-colors duration-300" data-vi="350K" data-en="$14">350K</span>
+                                <span class="service-price text-3xl font-bold text-yellow-400 transition-colors duration-300" data-vi="200K" data-en="$8">200K</span>
                                 <span class="text-gray-400" data-vi="/lần" data-en="/time">/lần</span>
                             </div>
                         </div>
@@ -430,7 +265,7 @@
                 <div class="service-card service-premium bg-gray-800 rounded-2xl shadow-xl overflow-hidden fade-in-up transform scale-105 relative cursor-pointer" onclick="openServiceModal(2)">
                     
                     <div class="relative">
-                        <img src="./image/store.jpg" alt="Gói Royal Premium" class="service-image w-full h-48 object-cover transition-all duration-300">
+                        <img src="./image/main-store.jpeg" alt="Gói Royal Premium" class="service-image w-full h-48 object-cover transition-all duration-300">
                         <div class="service-badge absolute top-4 left-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold transition-transform duration-300" data-vi="Tốt nhất" data-en="Best">
                             Tốt nhất
                         </div>
@@ -472,7 +307,7 @@
                 <!-- Beard & Styling -->
                 <div class="service-card bg-gray-800 rounded-2xl shadow-xl overflow-hidden fade-in-up relative cursor-pointer" onclick="openServiceModal(3)">
                     <div class="relative">
-                        <img src="./image/store.jpg" 
+                        <img src="./image/main-store.jpeg" 
                              alt="Gói VIP Executive" 
                              class="service-image w-full h-48 object-cover transition-all duration-300">
                         <div class="service-badge absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold transition-transform duration-300" data-vi="Đặc biệt" data-en="Special">
@@ -678,7 +513,7 @@
                 <div class="relative group overflow-hidden rounded-2xl shadow-2xl scale-hover fade-in-up">
                     <video 
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                        poster="./image/store.jpg" 
+                        poster="./image/main-store.jpeg" 
                         muted autoplay loop
                         preload="metadata">
                         <source src="./video/vid1.mp4" type="video/mp4">
@@ -698,7 +533,7 @@
                 <div class="relative group overflow-hidden rounded-2xl shadow-2xl scale-hover fade-in-up">
                     <video 
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                        poster="./image/store.jpg"
+                        poster="./image/main-store.jpeg"
                         muted autoplay loop
                         preload="metadata">
                         <source src="./video/vid2.mp4" type="video/mp4">
@@ -718,7 +553,7 @@
                 <div class="relative group overflow-hidden rounded-2xl shadow-2xl scale-hover fade-in-up">
                     <video 
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                        poster="./image/store.jpg"
+                        poster="./image/main-store.jpeg"
                         muted autoplay loop
                         preload="metadata">
                         <source src="./video/vid3.mp4" type="video/mp4">
@@ -1141,589 +976,6 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const scrollTop = document.getElementById('scrollTop');
-            const logo = navbar.querySelector('.font-bold.text-2xl');
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            
-            if (window.scrollY > -1) {
-                // Add white background and shadow
-                navbar.classList.add('bg-white', 'shadow-lg');
-                navbar.classList.remove('bg-transparent');
-                
-                // Update navigation links
-                navbar.querySelectorAll('a:not(.btn-primary):not(.language-btn)').forEach(link => {
-                    link.classList.remove('text-white', 'hover:text-yellow-400');
-                    link.classList.add('text-gray-800', 'hover:text-yellow-600');
-                });
-                
-                // Update logo
-                if (logo) {
-                    logo.classList.remove('text-white');
-                    logo.classList.add('text-gray-800');
-                }
-                
-                // Update mobile menu button
-                if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.remove('text-white');
-                    mobileMenuBtn.classList.add('text-gray-800');
-                }
-                
-                // Update language buttons for scrolled state
-                navbar.querySelectorAll('.language-btn').forEach(btn => {
-                    btn.classList.remove('text-white');
-                    btn.classList.add('text-gray-700');
-                });
-                
-                // Update language switch container
-                const langContainer = navbar.querySelector('.bg-white.bg-opacity-20');
-                if (langContainer) {
-                    langContainer.classList.remove('bg-white', 'bg-opacity-20');
-                    langContainer.classList.add('bg-gray-100');
-                }
-                
-                scrollTop.classList.remove('opacity-0');
-                scrollTop.classList.add('opacity-100');
-            } else {
-                // Remove white background and shadow
-                navbar.classList.remove('bg-white', 'shadow-lg');
-                navbar.classList.add('bg-transparent');
-                
-                // Restore navigation links
-                navbar.querySelectorAll('a:not(.btn-primary):not(.language-btn)').forEach(link => {
-                    link.classList.add('text-white', 'hover:text-yellow-400');
-                    link.classList.remove('text-gray-800', 'hover:text-yellow-600');
-                });
-                
-                // Restore logo
-                if (logo) {
-                    logo.classList.add('text-white');
-                    logo.classList.remove('text-gray-800');
-                }
-                
-                // Restore mobile menu button
-                if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.add('text-white');
-                    mobileMenuBtn.classList.remove('text-gray-800');
-                }
-                
-                // Restore language buttons
-                navbar.querySelectorAll('.language-btn').forEach(btn => {
-                    btn.classList.add('text-white');
-                    btn.classList.remove('text-gray-700');
-                });
-                
-                // Restore language switch container
-                const langContainer = navbar.querySelector('.bg-gray-100');
-                if (langContainer) {
-                    langContainer.classList.add('bg-white', 'bg-opacity-20');
-                    langContainer.classList.remove('bg-gray-100');
-                }
-                
-                scrollTop.classList.add('opacity-0');
-                scrollTop.classList.remove('opacity-100');
-            }
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll to top
-        document.getElementById('scrollTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Service Modal Functions
-        const serviceModal = document.getElementById('serviceModal');
-        
-        // Service data
-        const serviceDetails = {
-            1: {
-                name: 'Gói Gentleman Classic',
-                price: '350,000 VNĐ',
-                duration: '60 phút',
-                includes: '5 dịch vụ',
-                category: 'Cơ bản',
-                highlights: [
-                    'Cắt tóc theo yêu cầu với kỹ thuật chuyên nghiệp',
-                    'Gội đầu thư giãn với dầu gội cao cấp',
-                    'Massage đầu và vai cổ',
-                    'Tạo kiểu với sáp/gel định hình',
-                    'Vệ sinh tai và lông mũi'
-                ],
-                description: 'Gói dịch vụ cơ bản dành cho quý ông hiện đại, mang đến diện mạo lịch lãm và phong cách.'
-            },
-            2: {
-                name: 'Gói Royal Premium',
-                price: '650,000 VNĐ',
-                duration: '90 phút',
-                includes: '8 dịch vụ',
-                category: 'Cao cấp',
-                highlights: [
-                    'Cắt tóc chuyên nghiệp với kỹ thuật fade/undercut',
-                    'Cạo râu truyền thống bằng dao cạo',
-                    'Massage mặt và đầu thư giãn',
-                    'Đắp mặt nạ dưỡng da nam',
-                    'Tạo kiểu hoàn thiện',
-                    'Vệ sinh tai, mũi chuyên sâu',
-                    'Uống trà/cà phê miễn phí',
-                    'Dịch vụ chăm sóc lông mày'
-                ],
-                description: 'Trải nghiệm hoàn hảo cho quý ông đẳng cấp, kết hợp giữa truyền thống và hiện đại.'
-            },
-            3: {
-                name: 'Gói VIP Executive',
-                price: '950,000 VNĐ',
-                duration: '120 phút',
-                includes: '12 dịch vụ',
-                category: 'VIP',
-                highlights: [
-                    'Tư vấn phong cách cá nhân từ Master Barber',
-                    'Cắt tóc theo thiết kế riêng biệt',
-                    'Cạo râu nghệ thuật với dao cạo thủ công',
-                    'Massage toàn thân thư giãn 30 phút',
-                    'Chăm sóc da mặt cao cấp',
-                    'Tạo kiểu tóc chuyên nghiệp',
-                    'Vệ sinh và chăm sóc móng tay',
-                    'Dịch vụ nước hoa cao cấp',
-                    'Thức uống premium không giới hạn',
-                    'Phòng VIP riêng tư',
-                    'Báo chí/tạp chí quốc tế',
-                    'Đưa đón bằng xe riêng (trong nội thành)'
-                ],
-                description: 'Dịch vụ VIP dành riêng cho giám đốc và doanh nhân thành đạt, trải nghiệm đẳng cấp thượng lưu.'
-            }
-        };
-
-        function openServiceModal(serviceId) {
-            console.log('Opening service modal for ID:', serviceId);
-            const service = serviceDetails[serviceId];
-            
-            if (!service) {
-                console.error('Service not found:', serviceId);
-                alert('Dịch vụ không tìm thấy!');
-                return;
-            }
-            
-            const modal = document.getElementById('serviceModal');
-            if (!modal) {
-                console.error('Service modal element not found!');
-                alert('Không tìm thấy modal!');
-                return;
-            }
-            
-            // Update modal content
-            const modalServiceName = document.getElementById('modalServiceName');
-            const modalServicePrice = document.getElementById('modalServicePrice');
-            const modalServiceDuration = document.getElementById('modalServiceDuration');
-            const modalServiceIncludes = document.getElementById('modalServiceIncludes');
-            const modalServiceCategory = document.getElementById('modalServiceCategory');
-            const modalServiceDescription = document.getElementById('modalServiceDescription');
-            
-            if (modalServiceName) modalServiceName.textContent = service.name;
-            if (modalServicePrice) modalServicePrice.textContent = service.price;
-            if (modalServiceDuration) modalServiceDuration.textContent = service.duration;
-            if (modalServiceIncludes) modalServiceIncludes.textContent = service.includes;
-            if (modalServiceCategory) modalServiceCategory.textContent = service.category;
-            if (modalServiceDescription) modalServiceDescription.textContent = service.description;
-            
-            // Update highlights
-            const highlightsList = document.getElementById('modalServiceHighlights');
-            if (highlightsList) {
-                highlightsList.innerHTML = '';
-                service.highlights.forEach(highlight => {
-                    const li = document.createElement('li');
-                    li.className = 'flex items-start text-gray-300 mb-2';
-                    li.innerHTML = `<i class="fas fa-scissors text-yellow-400 mr-3 mt-1 text-sm"></i><span>${highlight}</span>`;
-                    highlightsList.appendChild(li);
-                });
-            }
-            
-            // Show modal
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-            console.log('Service modal opened successfully');
-        }
-
-        function closeServiceModal() {
-            serviceModal.classList.add('hidden');
-            serviceModal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Function to handle "Đặt lịch ngay" button in modal
-        function bookServiceFromModal() {
-            closeServiceModal();
-            // Smooth scroll to contact form
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-
-        // Function to handle "Liên hệ tư vấn" button in modal
-        function contactFromModal() {
-            closeServiceModal();
-            // Smooth scroll to contact form
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-
-        // Service Modal event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            const closeBtn = document.querySelector('#serviceModal .close-modal');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closeServiceModal);
-            }
-            
-            if (serviceModal) {
-                serviceModal.addEventListener('click', function(e) {
-                    if (e.target === serviceModal) {
-                        closeServiceModal();
-                    }
-                });
-            }
-        });
-
-
-
-        // Service card hover effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                // Add subtle shake effect to badge
-                const badge = this.querySelector('.service-badge');
-                if (badge) {
-                    badge.style.animation = 'pulse 0.6s ease-in-out';
-                }
-                
-                // Add glow effect to price
-                const price = this.querySelector('.service-price');
-                if (price) {
-                    price.style.textShadow = '0 0 10px rgba(212, 175, 55, 0.5)';
-                }
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                // Remove effects
-                const badge = this.querySelector('.service-badge');
-                if (badge) {
-                    badge.style.animation = '';
-                }
-                
-                const price = this.querySelector('.service-price');
-                if (price) {
-                    price.style.textShadow = '';
-                }
-            });
-            
-            // Add click effect - Show service details or booking
-            // card.addEventListener('click', function() {
-            //     this.style.transform = 'translateY(-10px) scale(0.98)';
-            //     setTimeout(() => {
-            //         this.style.transform = '';
-            //     }, 150);
-                
-            //     // Scroll to contact form for booking
-            //     setTimeout(() => {
-            //         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            //     }, 200);
-            // });
-        });
-
-        // Gallery Lightbox functionality
-        const galleryImages = [
-            { src: './image/customer/c1.jpg', alt: 'Khách hàng hài lòng' },
-            { src: './image/customer/c2.jpg', alt: 'Không gian Barbershop hiện đại' },
-            { src: './image/customer/c3.jpg', alt: 'Cắt tóc chuyên nghiệp' },
-            { src: './image/customer/c11.jpg', alt: 'no11' },
-            // { src: './image/customer/c4.jpg', alt: 'Kiểu tóc thời trang' },
-            { src: './image/customer/c10.jpg', alt: 'no10' },
-            // { src: './image/customer/c5.jpg', alt: 'Cạo râu truyền thống' },
-            { src: './image/customer/c6.jpg', alt: 'Dịch vụ chăm sóc cao cấp' },
-            { src: './image/customer/c7.jpg', alt: 'Phong cách quý ông' },
-            { src: './image/customer/c8.jpg', alt: 'Không gian thư giãn' },
-            { src: './image/customer/c9.jpg', alt: 'Chăm sóc tóc chuyên sâu' },
-        ];
-
-        let currentImageIndex = 0;
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const lightboxPrev = document.getElementById('lightbox-prev');
-        const lightboxNext = document.getElementById('lightbox-next');
-        const lightboxCounter = document.getElementById('lightbox-counter');
-
-        // Update counter
-        function updateCounter() {
-            const counter = document.getElementById('lightbox-counter');
-            if (counter) {
-                counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
-            }
-        }
-
-        // Open lightbox
-        function openLightbox(index) {
-            console.log('Opening lightbox for image index:', index);
-            
-            if (index < 0 || index >= galleryImages.length) {
-                console.error('Invalid image index:', index);
-                return;
-            }
-            
-            const lightboxElement = document.getElementById('lightbox');
-            const lightboxImgElement = document.getElementById('lightbox-img');
-            
-            if (!lightboxElement || !lightboxImgElement) {
-                console.error('Lightbox elements not found!');
-                alert('Không tìm thấy lightbox!');
-                return;
-            }
-            
-            currentImageIndex = index;
-            lightboxImgElement.src = galleryImages[index].src;
-            lightboxImgElement.alt = galleryImages[index].alt;
-            updateCounter();
-            lightboxElement.classList.remove('hidden');
-            lightboxElement.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-            console.log('Lightbox opened successfully for:', galleryImages[index].alt);
-        }
-
-        // Close lightbox
-        function closeLightbox() {
-            const lightboxElement = document.getElementById('lightbox');
-            if (lightboxElement) {
-                lightboxElement.classList.add('hidden');
-                lightboxElement.classList.remove('flex');
-            }
-            document.body.style.overflow = 'auto';
-        }
-
-        // Show previous image
-        function showPrevImage() {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            const lightboxImgElement = document.getElementById('lightbox-img');
-            if (lightboxImgElement) {
-                lightboxImgElement.src = galleryImages[currentImageIndex].src;
-                lightboxImgElement.alt = galleryImages[currentImageIndex].alt;
-            }
-            updateCounter();
-        }
-
-        // Show next image
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            const lightboxImgElement = document.getElementById('lightbox-img');
-            if (lightboxImgElement) {
-                lightboxImgElement.src = galleryImages[currentImageIndex].src;
-                lightboxImgElement.alt = galleryImages[currentImageIndex].alt;
-            }
-            updateCounter();
-        }
-
-        // Event listeners for gallery
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const index = parseInt(this.dataset.index);
-                openLightbox(index);
-            });
-        });
-
-        // Event listeners for lightbox controls
-        document.addEventListener('DOMContentLoaded', function() {
-            const lightboxClose = document.getElementById('lightbox-close');
-            const lightboxPrev = document.getElementById('lightbox-prev');
-            const lightboxNext = document.getElementById('lightbox-next');
-            const lightbox = document.getElementById('lightbox');
-            
-            if (lightboxClose) {
-                lightboxClose.addEventListener('click', closeLightbox);
-            }
-            if (lightboxPrev) {
-                lightboxPrev.addEventListener('click', showPrevImage);
-            }
-            if (lightboxNext) {
-                lightboxNext.addEventListener('click', showNextImage);
-            }
-            
-            // Close lightbox when clicking outside image
-            if (lightbox) {
-                lightbox.addEventListener('click', function(e) {
-                    if (e.target === lightbox) {
-                        closeLightbox();
-                    }
-                });
-            }
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            const lightbox = document.getElementById('lightbox');
-            // Lightbox keyboard navigation
-            if (lightbox && !lightbox.classList.contains('hidden')) {
-                switch(e.key) {
-                    case 'Escape':
-                        closeLightbox();
-                        break;
-                    case 'ArrowLeft':
-                        showPrevImage();
-                        break;
-                    case 'ArrowRight':
-                        showNextImage();
-                        break;
-                }
-            }
-            
-            // Tour modal keyboard navigation
-            const tourModal = document.getElementById('tourModal');
-            if (tourModal && !tourModal.classList.contains('hidden')) {
-                if (e.key === 'Escape') {
-                    closeTourModal();
-                }
-            }
-            
-            // Service modal keyboard navigation
-            const serviceModal = document.getElementById('serviceModal');
-            if (serviceModal && !serviceModal.classList.contains('hidden') && e.key === 'Escape') {
-                closeServiceModal();
-            }
-        });
-
-        // Language switching functionality
-        let currentLanguage = 'vi';
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            
-            // Update all elements with data attributes
-            document.querySelectorAll('[data-vi][data-en]').forEach(element => {
-                if (lang === 'vi') {
-                    element.textContent = element.getAttribute('data-vi');
-                } else if (lang === 'en') {
-                    element.textContent = element.getAttribute('data-en');
-                }
-            });
-
-            // Update form placeholders
-            document.querySelectorAll('input[data-placeholder-vi][data-placeholder-en]').forEach(input => {
-                if (lang === 'vi') {
-                    input.placeholder = input.getAttribute('data-placeholder-vi');
-                } else if (lang === 'en') {
-                    input.placeholder = input.getAttribute('data-placeholder-en');
-                }
-            });
-
-            // Update textarea placeholders
-            document.querySelectorAll('textarea[data-placeholder-vi][data-placeholder-en]').forEach(textarea => {
-                if (lang === 'vi') {
-                    textarea.placeholder = textarea.getAttribute('data-placeholder-vi');
-                } else if (lang === 'en') {
-                    textarea.placeholder = textarea.getAttribute('data-placeholder-en');
-                }
-            });
-
-            // Update select options
-            document.querySelectorAll('select option[data-vi][data-en]').forEach(option => {
-                if (lang === 'vi') {
-                    option.textContent = option.getAttribute('data-vi');
-                } else if (lang === 'en') {
-                    option.textContent = option.getAttribute('data-en');
-                }
-            });
-
-            // Update language button states (desktop)
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`#lang-${lang}`).classList.add('active');
-
-            // Update language button states (mobile)
-            document.querySelectorAll('.language-btn-mobile').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.language-btn-mobile[data-lang="${lang}"]`).classList.add('active');
-
-            // Update document title
-            document.title = lang === 'vi' 
-                ? 'THE HIDDEN BARBERSHOP - Nơi Định Nghĩa Phong Cách'
-                : 'THE HIDDEN BARBERSHOP - Where Style is Defined';
-
-            // Save language preference
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Language button event listeners
-        document.getElementById('lang-vi').addEventListener('click', () => switchLanguage('vi'));
-        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
-
-        // Mobile language button event listeners
-        document.querySelectorAll('.language-btn-mobile').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                switchLanguage(lang);
-            });
-        });
-
-        // Load saved language preference
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('preferredLanguage');
-            if (savedLanguage && savedLanguage !== currentLanguage) {
-                switchLanguage(savedLanguage);
-            }
-
-            // switchLanguage('en');
-        });
-    </script>
+    <script src="./main.js"></script>
 </body>
 </html>
