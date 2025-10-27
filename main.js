@@ -1,4 +1,108 @@
 
+// Language switching functionality
+let currentLanguage = 'vi';
+
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+    
+    // Update all elements with data attributes
+    document.querySelectorAll('[data-vi][data-en]').forEach(element => {
+        if (lang === 'vi') {
+            element.textContent = element.getAttribute('data-vi');
+        } else if (lang === 'en') {
+            element.textContent = element.getAttribute('data-en');
+        }
+    });
+
+    // Update form placeholders
+    document.querySelectorAll('input[data-placeholder-vi][data-placeholder-en]').forEach(input => {
+        if (lang === 'vi') {
+            input.placeholder = input.getAttribute('data-placeholder-vi');
+        } else if (lang === 'en') {
+            input.placeholder = input.getAttribute('data-placeholder-en');
+        }
+    });
+
+    // Update textarea placeholders
+    document.querySelectorAll('textarea[data-placeholder-vi][data-placeholder-en]').forEach(textarea => {
+        if (lang === 'vi') {
+            textarea.placeholder = textarea.getAttribute('data-placeholder-vi');
+        } else if (lang === 'en') {
+            textarea.placeholder = textarea.getAttribute('data-placeholder-en');
+        }
+    });
+
+    // Update select options
+    document.querySelectorAll('select option[data-vi][data-en]').forEach(option => {
+        if (lang === 'vi') {
+            option.textContent = option.getAttribute('data-vi');
+        } else if (lang === 'en') {
+            option.textContent = option.getAttribute('data-en');
+        }
+    });
+
+    // Update language button states (desktop)
+    document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`#lang-${lang}`).classList.add('active');
+
+    // Update language button states (mobile)
+    document.querySelectorAll('.language-btn-mobile').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`.language-btn-mobile[data-lang="${lang}"]`).classList.add('active');
+
+    // Update document title
+    document.title = lang === 'vi' 
+        ? 'THE HIDDEN BARBERSHOP - Nơi Định Nghĩa Phong Cách'
+        : 'THE HIDDEN BARBERSHOP - Where Style is Defined';
+
+    // Update service modal if it's currently open
+    const serviceModal = document.getElementById('serviceModal');
+    if (serviceModal && !serviceModal.classList.contains('hidden')) {
+        // Find which service is currently displayed and refresh it
+        const modalServiceName = document.getElementById('modalServiceName');
+        if (modalServiceName) {
+            // Find the service ID by matching the current name
+            for (let serviceId in serviceDetails) {
+                const service = serviceDetails[serviceId];
+                if (service.name.vi === modalServiceName.textContent || service.name.en === modalServiceName.textContent) {
+                    // Refresh the modal with the new language
+                    setTimeout(() => openServiceModal(parseInt(serviceId)), 100);
+                    break;
+                }
+            }
+        }
+    }
+
+    // Save language preference
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Language button event listeners
+document.getElementById('lang-vi').addEventListener('click', () => switchLanguage('vi'));
+document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+
+// Mobile language button event listeners
+document.querySelectorAll('.language-btn-mobile').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        switchLanguage(lang);
+    });
+});
+
+// Load saved language preference
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage && savedLanguage !== currentLanguage) {
+        switchLanguage(savedLanguage);
+    }
+
+    // switchLanguage('en');
+});
+
 // Mobile menu toggle
 document.getElementById('mobile-menu-btn').addEventListener('click', function() {
     const mobileMenu = document.getElementById('mobile-menu');
@@ -135,60 +239,155 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
 const serviceModal = document.getElementById('serviceModal');
 
 //# Service data
+//1. Cắt Cơ Bản - Basic Cut : 200k
+// 2. Ép phồng mái - Fringe Up Perm : 100k
+// 3. Ép Side - Down Perm : 200-300k
+// 4. Duỗi tóc - Straighten up: 200-300k
+// 5. Cạo khăn nóng - Hot Towel Shave: 150k
+// 6. Nhuộm tóc : 
+// - Nhuộm đen - Black Hair : 250k
+// - Nhuộm màu thường - Basic Color : 300k ( Size S ) - 400k ( Size M ) - 500k ( Size L )
+// - Nhuộm màu tẩy (thời trang) - Fashion Color: 350k ( Size S ) - 450k ( Size M ) - 550k ( Size L ) 
+// - Tẩy tóc - Blonding : 350k ( Size S ) - 450k ( Size M ) - 550k ( Size L )
+// - Bóc đen đỏ xanh - Removed Color : 350k ( Size S ) - 450k ( Size M ) - 550k ( Size L )
+// 7. Uốn tóc - Perm :
+// - Xoăn nhẹ ( xoăn C,S) - Wavy Perm : 350k ( Size S ) - 450k ( Size M ) - 550k ( Size L )
+// - Xoăn vừa ( xoăn rối ) - Messy Perm :  450k ( Size S ) - 550k ( Size M ) - 650k ( Size L )
+// - Xoăn nhiều ( xoăn xù ) - Curly Perm : 550k ( Size S ) - 650k ( Size M ) - 750k ( Size L )
 const serviceDetails = {
     1: {
-        name: 'Gói Gentleman Classic',
-        price: '200,000 VNĐ',
-        duration: '60 phút',
-        includes: '4 dịch vụ',
-        category: 'Cơ bản',
-        highlights: [
-            'Cắt tóc theo yêu cầu với kỹ thuật chuyên nghiệp',
-            'Gội đầu thư giãn với dầu gội cao cấp',
-            'Tạo kiểu với sáp/gel định hình',
-            'Vệ sinh tai và lông mũi'
-        ],
-        description: 'Gói dịch vụ cơ bản dành cho quý ông hiện đại, mang đến diện mạo lịch lãm và phong cách.'
+        name: {
+            vi: 'Gói Private Cut 1:1',
+            en: 'Private Cut Package 1:1'
+        },
+        price: {
+            vi: '200,000 VNĐ',
+            en: '$8'
+        },
+        duration: {
+            vi: '60 phút',
+            en: '60 minutes'
+        },
+        includes: {
+            vi: '4 dịch vụ',
+            en: '4 services'
+        },
+        category: {
+            vi: 'Cao cấp',
+            en: 'Premium'
+        },
+        highlights: {
+            vi: [
+                'Cắt tóc theo yêu cầu với kỹ thuật chuyên nghiệp',
+                'Gội đầu thư giãn với dầu gội cao cấp',
+                'Tạo kiểu với sáp/gel định hình',
+                'Vệ sinh tai và lông mũi'
+            ],
+            en: [
+                'Professional haircut according to requirements',
+                'Relaxing shampoo with premium products',
+                'Hair styling with wax/gel',
+                'Ear and nose hair cleaning'
+            ]
+        },
+        description: {
+            vi: 'Gói dịch vụ cơ bản dành cho quý ông hiện đại, mang đến diện mạo lịch lãm và phong cách.',
+            en: 'Basic service package for modern gentlemen, bringing elegant and stylish appearance.'
+        }
     },
     2: {
-        name: 'Gói Royal Premium',
-        price: '650,000 VNĐ',
-        duration: '90 phút',
-        includes: '8 dịch vụ',
-        category: 'Cao cấp',
-        highlights: [
-            'Cắt tóc chuyên nghiệp với kỹ thuật fade/undercut',
-            'Cạo râu truyền thống bằng dao cạo',
-            'Massage mặt và đầu thư giãn',
-            'Đắp mặt nạ dưỡng da nam',
-            'Tạo kiểu hoàn thiện',
-            'Vệ sinh tai, mũi chuyên sâu',
-            'Uống trà/cà phê miễn phí',
-            'Dịch vụ chăm sóc lông mày'
-        ],
-        description: 'Trải nghiệm hoàn hảo cho quý ông đẳng cấp, kết hợp giữa truyền thống và hiện đại.'
+        name: {
+            vi: 'Gói Tẩy - Nhuộm',
+            en: 'Bleaching & Coloring Package'
+        },
+        price: {
+            vi: 'Chỉ từ 250,000 VNĐ',
+            en: 'Starting from $10'
+        },
+        duration: {
+            vi: '90 phút',
+            en: '90 minutes'
+        },
+        includes: {
+            vi: '8 dịch vụ',
+            en: '8 services'
+        },
+        category: {
+            vi: 'Cao cấp',
+            en: 'Premium'
+        },
+        highlights: {
+            vi: [
+                'Nhuộm đen - Black Hair: 250k',
+                'Nhuộm màu thường - Basic Color: 300-500k',
+                'Nhuộm màu tẩy (thời trang) - Fashion Color: 350-550k',
+                'Tẩy tóc - Blonding: 350-550k',
+                'Bóc đen đỏ xanh - Color Removal: 350-550k',
+                'Cạo khăn nóng - Hot Towel Shave: 150k',
+                'Gội đầu dưỡng chất - Nourishing Shampoo: 100k',
+                'Hấp dầu phục hồi - Deep Conditioning: 150k'
+            ],
+            en: [
+                'Black Hair Dye: $10',
+                'Basic Color Dye: $12-20',
+                'Fashion Color (Bleached): $14-22',
+                'Hair Bleaching: $14-22',
+                'Color Removal: $14-22',
+                'Hot Towel Shave: $6',
+                'Nourishing Shampoo: $4',
+                'Deep Conditioning Treatment: $6'
+            ]
+        },
+        description: {
+            vi: 'Sử dụng sản phẩm cao cấp nhất thị trường. Cam kết không đau rát, kích ứng.',
+            en: 'Using the highest quality products on the market. Guaranteed no pain, irritation or allergic reactions.'
+        }
     },
     3: {
-        name: 'Gói VIP Executive',
-        price: '950,000 VNĐ',
-        duration: '120 phút',
-        includes: '12 dịch vụ',
-        category: 'VIP',
-        highlights: [
-            'Tư vấn phong cách cá nhân từ Master Barber',
-            'Cắt tóc theo thiết kế riêng biệt',
-            'Cạo râu nghệ thuật với dao cạo thủ công',
-            'Massage toàn thân thư giãn 30 phút',
-            'Chăm sóc da mặt cao cấp',
-            'Tạo kiểu tóc chuyên nghiệp',
-            'Vệ sinh và chăm sóc móng tay',
-            'Dịch vụ nước hoa cao cấp',
-            'Thức uống premium không giới hạn',
-            'Phòng VIP riêng tư',
-            'Báo chí/tạp chí quốc tế',
-            'Đưa đón bằng xe riêng (trong nội thành)'
-        ],
-        description: 'Dịch vụ VIP dành riêng cho giám đốc và doanh nhân thành đạt, trải nghiệm đẳng cấp thượng lưu.'
+        name: {
+            vi: 'Gói Uốn - Ép tóc',
+            en: 'Perm & Straightening Package'
+        },
+        price: {
+            vi: 'Chỉ từ 200,000 VNĐ',
+            en: 'Starting from $8'
+        },
+        duration: {
+            vi: '120 phút',
+            en: '120 minutes'
+        },
+        includes: {
+            vi: '7 dịch vụ',
+            en: '7 services'
+        },
+        category: {
+            vi: 'Cao cấp',
+            en: 'Premium'
+        },
+        highlights: {
+            vi: [
+                'Ép phồng mái - Fringe Up Perm: 100k',
+                'Ép Side - Down Perm: 200-300k',
+                'Duỗi tóc - Hair Straightening: 200-300k',
+                'Cạo khăn nóng - Hot Towel Shave: 150k',
+                'Uốn tóc xoăn nhẹ - Wavy Perm: 350-550k',
+                'Uốn tóc xoăn vừa - Messy Perm: 450-650k',
+                'Uốn tóc xoăn nhiều - Curly Perm: 550-750k'
+            ],
+            en: [
+                'Fringe Volume Perm: $4',
+                'Side Down Perm: $8-12',
+                'Hair Straightening: $8-12',
+                'Hot Towel Shave: $6',
+                'Light Wave Perm: $14-22',
+                'Messy Perm: $18-26',
+                'Heavy Curly Perm: $22-30'
+            ]
+        },
+        description: {
+            vi: 'Sử dụng sản phẩm cao cấp nhất thị trường. Cam kết không đau rát, kích ứng.',
+            en: 'Using the highest quality products on the market. Guaranteed no pain, irritation or allergic reactions.'
+        }
     }
 };
 
@@ -209,7 +408,10 @@ function openServiceModal(serviceId) {
         return;
     }
     
-    // Update modal content
+    // Get current language
+    const lang = currentLanguage || 'vi';
+    
+    // Update modal content with language-specific data
     const modalServiceName = document.getElementById('modalServiceName');
     const modalServicePrice = document.getElementById('modalServicePrice');
     const modalServiceDuration = document.getElementById('modalServiceDuration');
@@ -217,18 +419,18 @@ function openServiceModal(serviceId) {
     const modalServiceCategory = document.getElementById('modalServiceCategory');
     const modalServiceDescription = document.getElementById('modalServiceDescription');
     
-    if (modalServiceName) modalServiceName.textContent = service.name;
-    if (modalServicePrice) modalServicePrice.textContent = service.price;
-    if (modalServiceDuration) modalServiceDuration.textContent = service.duration;
-    if (modalServiceIncludes) modalServiceIncludes.textContent = service.includes;
-    if (modalServiceCategory) modalServiceCategory.textContent = service.category;
-    if (modalServiceDescription) modalServiceDescription.textContent = service.description;
+    if (modalServiceName) modalServiceName.textContent = service.name[lang];
+    if (modalServicePrice) modalServicePrice.textContent = service.price[lang];
+    if (modalServiceDuration) modalServiceDuration.textContent = service.duration[lang];
+    if (modalServiceIncludes) modalServiceIncludes.textContent = service.includes[lang];
+    if (modalServiceCategory) modalServiceCategory.textContent = service.category[lang];
+    if (modalServiceDescription) modalServiceDescription.textContent = service.description[lang];
     
-    // Update highlights
+    // Update highlights with current language
     const highlightsList = document.getElementById('modalServiceHighlights');
     if (highlightsList) {
         highlightsList.innerHTML = '';
-        service.highlights.forEach(highlight => {
+        service.highlights[lang].forEach(highlight => {
             const li = document.createElement('li');
             li.className = 'flex items-start text-gray-300 mb-2';
             li.innerHTML = `<i class="fas fa-scissors text-yellow-400 mr-3 mt-1 text-sm"></i><span>${highlight}</span>`;
@@ -493,90 +695,4 @@ document.addEventListener('keydown', function(e) {
     if (serviceModal && !serviceModal.classList.contains('hidden') && e.key === 'Escape') {
         closeServiceModal();
     }
-});
-
-// Language switching functionality
-let currentLanguage = 'vi';
-
-function switchLanguage(lang) {
-    currentLanguage = lang;
-    document.documentElement.lang = lang;
-    
-    // Update all elements with data attributes
-    document.querySelectorAll('[data-vi][data-en]').forEach(element => {
-        if (lang === 'vi') {
-            element.textContent = element.getAttribute('data-vi');
-        } else if (lang === 'en') {
-            element.textContent = element.getAttribute('data-en');
-        }
-    });
-
-    // Update form placeholders
-    document.querySelectorAll('input[data-placeholder-vi][data-placeholder-en]').forEach(input => {
-        if (lang === 'vi') {
-            input.placeholder = input.getAttribute('data-placeholder-vi');
-        } else if (lang === 'en') {
-            input.placeholder = input.getAttribute('data-placeholder-en');
-        }
-    });
-
-    // Update textarea placeholders
-    document.querySelectorAll('textarea[data-placeholder-vi][data-placeholder-en]').forEach(textarea => {
-        if (lang === 'vi') {
-            textarea.placeholder = textarea.getAttribute('data-placeholder-vi');
-        } else if (lang === 'en') {
-            textarea.placeholder = textarea.getAttribute('data-placeholder-en');
-        }
-    });
-
-    // Update select options
-    document.querySelectorAll('select option[data-vi][data-en]').forEach(option => {
-        if (lang === 'vi') {
-            option.textContent = option.getAttribute('data-vi');
-        } else if (lang === 'en') {
-            option.textContent = option.getAttribute('data-en');
-        }
-    });
-
-    // Update language button states (desktop)
-    document.querySelectorAll('.language-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`#lang-${lang}`).classList.add('active');
-
-    // Update language button states (mobile)
-    document.querySelectorAll('.language-btn-mobile').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`.language-btn-mobile[data-lang="${lang}"]`).classList.add('active');
-
-    // Update document title
-    document.title = lang === 'vi' 
-        ? 'THE HIDDEN BARBERSHOP - Nơi Định Nghĩa Phong Cách'
-        : 'THE HIDDEN BARBERSHOP - Where Style is Defined';
-
-    // Save language preference
-    localStorage.setItem('preferredLanguage', lang);
-}
-
-// Language button event listeners
-document.getElementById('lang-vi').addEventListener('click', () => switchLanguage('vi'));
-document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
-
-// Mobile language button event listeners
-document.querySelectorAll('.language-btn-mobile').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        switchLanguage(lang);
-    });
-});
-
-// Load saved language preference
-document.addEventListener('DOMContentLoaded', function() {
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    if (savedLanguage && savedLanguage !== currentLanguage) {
-        switchLanguage(savedLanguage);
-    }
-
-    // switchLanguage('en');
 });
